@@ -46,7 +46,7 @@
             <div class="card-body p-4 p-md-5">
               <h3 class="mb-4 pb-2">Student Form</h3>
 
-              <form action="">
+              <form action="" id="form">
 
                 <div class="row">
                   <div class="col-md-6 mb-4">
@@ -74,9 +74,9 @@
                       <input
                         type="text"
                         class="form-control"
-                        id="idNumber"
+                        id="ID"
                       />
-                      <label for="idNumber" class="form-label">ID</label>
+                      <label for="ID" class="form-label">ID</label>
                     </div>
 
                   </div>
@@ -200,6 +200,35 @@
                 </div>
 
               </form>
+
+              <script>
+                const form = document.getElementById('form'); 
+                const firstName= document.getElementById('firstName');
+                const lastName= document.getElementById('lastName');
+                const Id = document.getElementById('ID'); 
+                const emailAddress = document.getElementById('emailAddress'); 
+                const phoneNumber = document.getElementById('phoneNumber'); 
+
+
+                form.addEventListener('submit', function(e){
+                  e.preventDefault();
+
+                  const firstNameValue = firstName.value;
+                  const lastNameValue = lastName.value;
+                  const IdValue = ID.value;
+                  const emailAddressValue = emailAddress.value;
+                  const phoneNumberValue = phoneNumber.value;
+
+
+                  localStorage.setItem('first-name', firstNameValue);
+                  localStorage.setItem('last-name', lastNameValue);
+                  localStorage.setItem('Id-Name', IdValue);
+                  localStorage.setItem('email-address', emailAddressValue);
+                  localStorage.setItem('phone-number', phoneNumberValue);
+
+                  window.location.href = "table of student.html"
+                })
+              </script>
             </div>
           </div>
         </div>

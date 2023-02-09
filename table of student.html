@@ -50,29 +50,45 @@
                             <tr>
                               <th scope="col">STUDENT NAME</th>
                               <th scope="col">ID</th>
+                              <th scope="col">PHONE NUMBER</th>
                               <th scope="col">EMAIL</th>
                               <th scope="col">SUBJECTS</th>
                               
                             </tr>
+                            
                           </thead>
                           <tbody>
                             <tr>
-                              <th scope="row">Ali Hamood AlSubhi</th>
-                              <td>95878696</td>
-                              <td>hopeofoman1@gmail.com</td>
-                              <td>Math</td>
-                            
-                            </tr>
+
                             <tr>
-                              <th scope="row">Nidhal Al Mamari</th>
-                              <td>99559955</td>
-                              <td>sfrost34@example.com</td>
-                              <td>English</td>
-                            
+                              <th scope="row"><span id="first-name"></span></th>
+                              <td><span id="last-name"></span></td>
+                              <td><span id="Id-Name"></span></td>
+                              <td><span id="phone-number"></span></td>
+                              <td><span id="email-address"></span></td>
+                              <td></td>
                             </tr>
-                           
+                            
                           </tbody>
                         </table>
+                        <script>
+                          const firstName=localStorage.getItem('first-name')
+                          const lastName=localStorage.getItem('last-name')
+                          const ID=localStorage.getItem('Id-Name')
+                          const emailAddress=localStorage.getItem('email-address')
+                          const phoneNumber=localStorage.getItem('phone-number')
+
+
+
+                          document.getElementById('first-name').textContent=firstName;
+                          document.getElementById('last-name').textContent=lastName;
+                          document.getElementById('Id-Name').textContent=ID;
+                          document.getElementById('email-address').textContent=emailAddress;
+                          document.getElementById('phone-number').textContent=phoneNumber;
+
+
+
+                        </script>
                       </div>
                     </div>
                   </div>
