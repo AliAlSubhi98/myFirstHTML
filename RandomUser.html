@@ -1,0 +1,102 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+        .content {
+            text-align: center;
+            padding: 30px;
+            margin: 0px auto;
+        }
+
+        .details {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        table,
+        td {
+            border-collapse: collapse;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            padding: 10px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="details">
+            <table>
+                <h2>Random User's Details</h2>
+                <tr>
+                    <td>Picture</td>
+                    <td>Full Name </td>
+                    <td>Age </td>
+                    <td>Gender</td>
+                    <td>Location</td>
+                    <td>Country</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+    <script>
+        const api_url = "https://randomuser.me/api/";
+        async function getUser() {
+            for (let i = 0; i < 10; i++) {
+                //making a call to API
+                const response = await fetch(api_url);
+                // converting it to JSON format
+                const data = await response.json();
+                // getting data/information from JSON
+                const user = data.results[0];
+                let picture = user.picture.thumbnail;
+                let { first, last } = user.name;
+                let { gender, email, phone } = user;
+                let age = user.dob.age;
+                let { city, state, country } = user.location;
+                let fullName = first + " " + last;
+                // Creating a new table row
+                let tableRow = document.createElement("tr");
+                // Creating cells for each column
+                let pictureCell = document.createElement("td");
+                let nameCell = document.createElement("td");
+                let ageCell = document.createElement("td");
+                let genderCell = document.createElement("td");
+                let locationCell = document.createElement("td");
+                let countryCell = document.createElement("td");
+                // Setting the content of each cell
+                pictureCell.innerHTML = "<img src= "+picture+">";
+                nameCell.textContent = fullName;
+                ageCell.textContent = age;
+                genderCell.textContent = gender;
+                locationCell.textContent = city + ", " + state;
+                countryCell.textContent = country;
+                // Appending cells to the row
+                tableRow.appendChild(pictureCell);
+                tableRow.appendChild(nameCell);
+                tableRow.appendChild(ageCell);
+                tableRow.appendChild(genderCell);
+                tableRow.appendChild(locationCell);
+                tableRow.appendChild(countryCell);
+                // Appending the row to the table body
+                let tableBody = document.querySelector("tbody");
+                tableBody.appendChild(tableRow);
+            }
+        }
+        // Calling the getUser() function
+        getUser();
+    </script>
+    <p id="demo">JavaScript can change HTML content.</p><button type="button" onclick='document.getElementById("demo").innerHTML
+= "Content Changed!"'>
+        Change!</button>
+    <button type="button" onclick="document.getElementById('demo').style.display='none'">Hide!</button>
+    <button type="button" onclick="document.getElementById('demo').style.display='block'">Show!</button>
+</body>
+
+</html>
