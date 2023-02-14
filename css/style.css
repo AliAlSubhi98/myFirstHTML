@@ -66,12 +66,11 @@
     text-decoration: none;
   }
   
-  footer {
+   footer {
     background-color: #333;
     color: #fff;
     text-align: center;
     padding: 20px;
-    position: absolute;
     bottom: 0;
     width: 100%;
   }
@@ -140,4 +139,8 @@ tbody td {
     font-weight: 700;
     border-radius: 50px;
     transition: all 0.3s;
+}
+dropdownstyle{
+  font-family: 'Times New Roman', Times, serif;
+  color: black;
 }
