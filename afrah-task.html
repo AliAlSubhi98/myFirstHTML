@@ -48,66 +48,104 @@
 
 
     <div class="content">
-        <div class="details">
-            <table style="background-color: black;">
-                <h2>Random User's Details</h2>
-                <tr>
-                    <td>University Name</td>
-                    <td>Country </td>
-                    <td>Country Code </td>
-                    <td>website</td>
-                    
-                </tr>
-            </table>
-        </div>
+        <form id="my-form" action="submit-form.php" method="post">
+            <label for="university-name">University Name:</label>
+            <input type="text" id="university-name" name="university-name" required>
+            <br>
+            <label for="country">Country:</label>
+            <input type="text" id="country" name="country" required>
+            <br>
+            <label for="country-code">Country Code:</label>
+            <input type="text" id="country-code" name="country-code" required>
+            <br>
+            <label for="website">Website:</label>
+            <input type="url" id="website" name="website" required>
+            <br>
+
+        </form>
+
     </div>
 
     <script>
         const api_url = "http://universities.hipolabs.com/search?country=United+States";
-        async function getUser() {
-            for (let i = 0; i < 10; i++) {
-                //making a call to API
-                const response = await fetch(api_url);
-                // converting it to JSON format
-                const data = await response.json();
-                // getting data/information from JSON
-                const user = data[i];
-                let universityName = user.name;
-                let country = user.country;
-                let countryCode = user.alpha_two_code;
-                let website = user.web_pages[0];
-                // Creating a new table row
-                let tableRow = document.createElement("tr");
-                // Creating cells for each column
-                let universityNameCell = document.createElement("td");
-                let countryCell = document.createElement("td");
-                let countryCodeCell = document.createElement("td");
-                let websiteCell = document.createElement("td");
 
-                // Setting the content of each cell
-                universityNameCell.textContent = universityName;
-                countryCell.textContent = country;
-                countryCodeCell.textContent = countryCode;
-                websiteCell.textContent = website;
-                // Appending cells to the row
-                tableRow.appendChild(universityNameCell);
-                tableRow.appendChild(countryCell);
-                tableRow.appendChild(countryCodeCell);
-                tableRow.appendChild(websiteCell);
+        async function updateFormData() {
 
-                // Appending the row to the table body
-                let tableBody = document.querySelector("tbody");
-                tableBody.appendChild(tableRow);
-            }
+            const response = await fetch(api_url);
+            const data = await response.json();
+            const randomIndex = Math.floor(Math.random() * 30);
+            const user = data[randomIndex];
+            const universityName = user.name;
+            const country = user.country;
+            const countryCode = user.alpha_two_code;
+            const website = user.web_pages[0];
+            const domainName = user.domains[0];
+
+            const universityNameInput = document.querySelector('#university-name');
+            const countryInput = document.querySelector('#country');
+            const countryCodeInput = document.querySelector('#country-code');
+            const websiteInput = document.querySelector('#website');
+
+            universityNameInput.value = universityName;
+            countryInput.value = country;
+            countryCodeInput.value = countryCode;
+            websiteInput.value = website;
+
+
+
+
         }
-        // Calling the getUser() function
-        getUser();
+        const form = document.querySelector('#my-form');
+        // Call the updateFormData function when the document is ready
+        // document.addEventListener('DOMContentLoaded', updateFormData);
+        updateFormData(); //do same as above.
     </script>
-    <p id="demo">JavaScript can change HTML content.</p><button type="button" onclick='document.getElementById("demo").innerHTML
-         = "Content Changed!"'>
-        Change!</button>
-    <button type="button" onclick="document.getElementById('demo').style.display='none'">Hide!</button>
-    <button type="button" onclick="document.getElementById('demo').style.display='block'">Show!</button>
+   <div class="content">
+    <div class="details">
+        <table style="background-color: rgb(73, 69, 69);">
+            <h2>Random User's Details</h2>
+            <tr>
+                <td>NO</td>
+                <td>Domain Name </td>
+            </tr>
+            <tbody></tbody> <!-- New tbody element added -->
+        </table>
+    </div>
+</div>
+
+<script>
+    
+
+    async function showDomains() {
+        for (let i = 0; i < 10; i++) {
+            //making a call to API
+            const response = await fetch(api_url);
+            // converting it to JSON format
+            const data = await response.json();
+            // getting data/information from JSON
+
+            let user = data[i];
+            let domainName = user.domains[0];
+
+            // Creating a new table row
+            let tableRow = document.createElement("tr");
+            // Creating cells for each column
+            let noCell = document.createElement("td");
+            let domainNameCell = document.createElement("td");
+            // Setting the content each cell
+            noCell.textContent = i+1;
+            domainNameCell.textContent = domainName;
+            // Appending cells to the row
+            tableRow.appendChild(noCell);
+            tableRow.appendChild(domainNameCell);
+            // Appending the row to the table body
+            let tableBody = document.querySelector("tbody");
+            tableBody.appendChild(tableRow);
+        }
+    }
+    // Call the showDomain function when the document is ready
+    showDomains(); 
+</script>
 
 </body>
 
