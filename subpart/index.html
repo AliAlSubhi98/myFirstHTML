@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Afrah-Task2</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- MATERIAL DESIGN ICONIC FONT -->
+	<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+
+	<!-- STYLE CSS -->
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+
+	<style>
+		.my-table {
+			background-image: url(pexels-ann-h-3147624.jpg);
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+
+		table,
+		td {
+			color: black;
+			border-collapse: collapse;
+			text-align: center;
+			padding: 10px;
+			border: 1px solid black;
+			width: 500px;
+		}
+
+		tr:nth-child(even) {
+			border-collapse: collapse;
+			margin-left: auto;
+			margin-right: auto;
+			text-align: center;
+			padding: 10px;
+			border: 1px solid black;
+			background-color: #CD5888;
+		}
+
+		tr {
+			background-color: #e9e8e9;
+		}
+		.domain-text, .no-text{
+			background-color: #700d4a;
+			color: white;
+
+		}
+	</style>
+</head>
+
+<body>
+	<header>
+		<nav>
+		  <ul>
+			<li><a href="../index.html">Home</a></li>
+			<li><a href="../aboutUs.html">About</a></li>
+			<li><a href="#">Academics</a></li>
+			<li><a href="subpart/index.html">API-Task</a></li>
+			<li><a href="#">Contact Us</a></li>
+		  </ul>
+		</nav>
+	  </header>
+	<div class="wrapper" style="background-image: url('images/bg-registration-form-3.jpg');">
+		<div class="inner">
+			<form action="" id="my-form">
+				<h3>universities</h3>
+				<div class="form-wrapper">
+					<label for="university-name">University Name:</label>
+					<div class="form-holder">
+						<i class="zmdi zmdi-account-o"></i>
+						<input type="text" class="form-control" id="university-name">
+					</div>
+				</div>
+
+
+				<div class="form-wrapper" id="website1">
+					<label for="website">Website:</label>
+					<div class="form-holder">
+						<i class="zmdi zmdi-link"></i>
+						<input type="text" class="form-control" id="website">
+					</div>
+				</div>
+				<div class="form-wrapper">
+					<label for="country">Country:</label>
+					<div class="form-holder">
+						<i class="zmdi zmdi-pin"></i>
+						<input type="text" class="form-control" id="country">
+					</div>
+				</div>
+				<div class="form-wrapper">
+					<label for="country-code">Country Code:</label>
+					<div class="form-holder">
+						<i class="zmdi zmdi-pin"></i>
+						<input type="text" class="form-control" id="country-code">
+					</div>
+				</div>
+
+				<div class="button-holder">
+
+					<button class="button-hide" type="button"
+						onclick="document.getElementById('website1').style.display='none'">Hide!</button>
+
+					<button type="button"
+						onclick="document.getElementById('website1').style.display='block'">show!</button>
+				</div>
+
+
+			</form>
+			<script>
+				const api_url = "http://universities.hipolabs.com/search?country=United+States";
+
+				async function updateFormData() {
+
+					const response = await fetch(api_url);
+					const data = await response.json();
+					const randomIndex = Math.floor(Math.random() * 30);
+					const user = data[randomIndex];
+					const universityName = user.name;
+					const country = user.country;
+					const countryCode = user.alpha_two_code;
+					const website = user.web_pages[0];
+					const domainName = user.domains[0];
+
+					const universityNameInput = document.querySelector('#university-name');
+					const countryInput = document.querySelector('#country');
+					const countryCodeInput = document.querySelector('#country-code');
+					const websiteInput = document.querySelector('#website');
+
+					universityNameInput.value = universityName;
+					countryInput.value = country;
+					countryCodeInput.value = countryCode;
+					websiteInput.value = website;
+
+
+
+
+				}
+				const form = document.querySelector('#my-form');
+				// Call the updateFormData function when the document is ready
+				// document.addEventListener('DOMContentLoaded', updateFormData);
+				updateFormData(); //do same as above.
+			</script>
+		</div>
+	</div>
+	<div class="my-table">
+		<center>
+			<table>
+				<h1 style="color: #961062; font-weight: bolder;">Domain List</h1><br>
+				<tr>
+					<td class="no-text">NO</td>
+					<td class="domain-text">Domain Name </td>
+				</tr>
+
+			</table>
+			<script>
+
+
+				async function showDomains() {
+					for (let i = 0; i < 100; i++) {
+						//making a call to API
+						const response = await fetch(api_url);
+						// converting it to JSON format
+						const data = await response.json();
+						// getting data/information from JSON
+
+						let user = data[i];
+						let domainName = user.domains[0];
+
+						// Creating a new table row
+						let tableRow = document.createElement("tr");
+						// Creating cells for each column
+						let noCell = document.createElement("td");
+						let domainNameCell = document.createElement("td");
+						// Setting the content each cell
+						noCell.textContent = i + 1;
+						domainNameCell.textContent = domainName;
+						// Appending cells to the row
+						tableRow.appendChild(noCell);
+						tableRow.appendChild(domainNameCell);
+						// Appending the row to the table body
+						let tableBody = document.querySelector("tbody");
+						tableBody.appendChild(tableRow);
+					}
+				}
+				// Call the showDomain function when the document is ready
+				showDomains(); 
+			</script>
+	</div>
+	</center>
+</body>
+
+</html>

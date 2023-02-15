@@ -1,196 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+  <head>
+    <title>School System</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="../">Home</a></li>
+          <li><a href="aboutUs.html">About</a></li>
+          <li><a href="#">Academics</a></li>
+          <li><a href="subpart/index.html">API-Task</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1>Welcome to Our School System </h1>
+      <p>Learn, Grow, and Succeed with Us</p>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <title>StudentFormPage</title>
-  <!-- MDB icon -->
-  <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-  <!-- Google Fonts Roboto -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
-  <!-- MDB -->
-  <link rel="stylesheet" href="css/mdb.min.css" />
-  <link rel="stylesheet " href="css/style.css" />
+      <a href="index.html" class="cta">Add Student to the Schhol</a>
+      <a href="table of student.html" class="cta">Show All the Student</a>
 
-
-<body>
-
-
-
-  <section class="intro">
-    <div class="mask d-flex align-items-center h-100 gradient-custom">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-12 col-lg-9 col-xl-7">
-            <div class="card">
-              <header>
-                <nav>
-                  <ul>
-                    <li><a href="main.html">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Academics</a></li>
-                    <li><a href="#">Admissions</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                  </ul>
-                </nav>
-              </header>
-              <div class="card-body p-4 p-md-5">
-                <h3 class="mb-4 pb-2">Student Form</h3>
-
-                <form action="" id="form">
-
-                  <div class="row">
-                    <div class="col-md-6 mb-4">
-
-                      <div class="form-outline">
-                        <input type="text" id="firstName" class="form-control" />
-                        <label class="form-label" for="firstName">First Name</label>
-                      </div>
-
-                    </div>
-                    <div class="col-md-6 mb-4">
-
-                      <div class="form-outline">
-                        <input type="text" id="lastName" class="form-control" />
-                        <label class="form-label" for="lastName">Last Name</label>
-                      </div>
-
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-md-6 mb-4">
-
-                      <div class="form-outline datepicker">
-                        <input type="text" class="form-control" id="ID" />
-                        <label for="ID" class="form-label">ID</label>
-                      </div>
-
-                    </div>
-                    <div class="col-md-6 mb-4">
-
-                      <h6 class="mb-2 pb-1">Gender: </h6>
-
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender"
-                          value="option1" />
-                        <label class="form-check-label" for="femaleGender">Female</label>
-                      </div>
-
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender"
-                          value="option2" />
-                        <label class="form-check-label" for="maleGender">Male</label>
-                      </div>
-
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="otherGender"
-                          value="option3" />
-                        <label class="form-check-label" for="otherGender">Other</label>
-                      </div>
-
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-md-6 mb-4">
-
-                      <div class="form-outline">
-                        <input type="email" id="emailAddress" class="form-control" />
-                        <label class="form-label" for="emailAddress">Email</label>
-                      </div>
-
-                    </div>
-                    <div class="col-md-6 mb-4">
-
-                      <div class="form-outline">
-                        <input type="tel" id="phoneNumber" class="form-control" />
-                        <label class="form-label" for="phoneNumber">Phone Number</label>
-                      </div>
-
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-12">
-
-
-
-                      <h6 class="mb-3">Subject</h6>
-
-
-                      <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton"
-                        data-mdb-toggle="dropdown" aria-expanded="false"
-                        style="width: 600px; text-align: left; border: 1px solid rgb(185, 185, 185);">
-                        choose subjects
-                      </button>
-                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <dropdownstyle>
-                          <li><a href="#" class="meduim" data-value="option1" tabIndex="-1"><input type="checkbox"/>&nbsp;  Option 1</a></li>
-                          <li><a href="#" class="meduim" data-value="option2" tabIndex="-1"><input type="checkbox"/>&nbsp;  Option 2</a></li>
-                          <li><a href="#" class="meduim" data-value="option3" tabIndex="-1"><input type="checkbox"/>&nbsp;  Option 3</a></li>
-                          <li><a href="#" class="meduim" data-value="option4" tabIndex="-1"><input type="checkbox"/>&nbsp;  Option 4</a></li>
-                        </dropdownstyle>
-                      </ul>
-                    </div>
-
-
-
-
-
-                    <div class="mt-4">
-                      <input class="btn btn-warning btn-lg" type="submit" value="Submit" />
-                    </div>
-
-                  </div>
-              </div>
-
-              </form>
-
-              <script>
-                const form = document.getElementById('form');
-                const firstName = document.getElementById('firstName');
-                const lastName = document.getElementById('lastName');
-                const Id = document.getElementById('ID');
-                const emailAddress = document.getElementById('emailAddress');
-                const phoneNumber = document.getElementById('phoneNumber');
-                const subject = document.getElementById('')
-
-                form.addEventListener('submit', function (e) {
-                  e.preventDefault();
-
-                  const firstNameValue = firstName.value;
-                  const lastNameValue = lastName.value;
-                  const IdValue = ID.value;
-                  const emailAddressValue = emailAddress.value;
-                  const phoneNumberValue = phoneNumber.value;
-
-
-                  localStorage.setItem('first-name', firstNameValue);
-                  localStorage.setItem('last-name', lastNameValue);
-                  localStorage.setItem('Id-Name', IdValue);
-                  localStorage.setItem('email-address', emailAddressValue);
-                  localStorage.setItem('phone-number', phoneNumberValue);
-
-                  window.location.href = "table of student.html"
-                })
-              </script>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div>
-  </section>
-
-  <!-- MDB -->
-  <script type="text/javascript" src="js/mdb.min.js"></script>
-  <!-- Custom scripts -->
-  <script type="text/javascript"></script>
-</body>
-
+      <a href="#" class="cta">Learn More</a>
+    </main>
+    <footer>
+      <p>Copyright &copy; 2023 School System</p>
+    </footer>
+  </body>
 </html>
