@@ -67,7 +67,7 @@
                               <td><span id="Id-Name"></span></td>
                               <td><span id="phone-number"></span></td>
                               <td><span id="email-address"></span></td>
-                              <td></td>
+                              <td><span id="subject-menu"></span></td>
                             </tr>
                             
                           </tbody>
@@ -78,7 +78,7 @@
                           const ID=localStorage.getItem('Id-Name')
                           const emailAddress=localStorage.getItem('email-address')
                           const phoneNumber=localStorage.getItem('phone-number')
-
+                          const subject= localStorage.getItem('subject-menu')
                           
 
                           document.getElementById('first-name').textContent=firstName;
@@ -86,7 +86,7 @@
                           document.getElementById('Id-Name').textContent=ID;
                           document.getElementById('email-address').textContent=emailAddress;
                           document.getElementById('phone-number').textContent=phoneNumber;
-
+                          document.getElementById('subject-menu').textContent=subject;
 
 
                         </script>

@@ -31,9 +31,9 @@
                 <nav>
                   <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="#">About</a></li>
+                    <li><a href="aboutUs.html">About</a></li>
                     <li><a href="#">Academics</a></li>
-                    <li><a href="#">Admissions</a></li>
+                    <li><a href="subpart/index.html">API-Task</a></li>
                     <li><a href="#">Contact Us</a></li>
                   </ul>
                 </nav>
@@ -128,19 +128,15 @@
                         style="width: 600px; text-align: left; border: 1px solid rgb(185, 185, 185);">
                         choose subjects
                       </button>
-                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <ul class="dropdown-menu" id="subjectMenu" aria-labelledby="dropdownMenuButton">
                         <dropdownstyle>
-                          <li><a href="#" class="meduim" data-value="option1" tabIndex="-1"><input type="checkbox"/>&nbsp;  Option 1</a></li>
-                          <li><a href="#" class="meduim" data-value="option2" tabIndex="-1"><input type="checkbox"/>&nbsp;  Option 2</a></li>
-                          <li><a href="#" class="meduim" data-value="option3" tabIndex="-1"><input type="checkbox"/>&nbsp;  Option 3</a></li>
-                          <li><a href="#" class="meduim" data-value="option4" tabIndex="-1"><input type="checkbox"/>&nbsp;  Option 4</a></li>
+                          <li><a href="#" class="meduim" data-value="option1" tabIndex="-1"><input type="checkbox" id="mathSubject"/>&nbsp;  Math</a></li>
+                          <li><a href="#" class="meduim" data-value="option2" tabIndex="-1"><input type="checkbox" id="BioSubject"/>&nbsp;  Bio</a></li>
+                          <li><a href="#" class="meduim" data-value="option3" tabIndex="-1"><input type="checkbox" id="ArabicSubject"/>&nbsp;  Arabic</a></li>
+                          <li><a href="#" class="meduim" data-value="option4" tabIndex="-1"><input type="checkbox" id="EnglishSubject"/>&nbsp;  English</a></li>
                         </dropdownstyle>
                       </ul>
                     </div>
-
-
-
-
 
                     <div class="mt-4">
                       <input class="btn btn-warning btn-lg" type="submit" value="Submit" />
@@ -158,7 +154,8 @@
                 const Id = document.getElementById('ID');
                 const emailAddress = document.getElementById('emailAddress');
                 const phoneNumber = document.getElementById('phoneNumber');
-                const subject = document.getElementById('')
+                const subject = document.getElementById('subjectMenu');
+
 
                 form.addEventListener('submit', function (e) {
                   e.preventDefault();
@@ -168,6 +165,7 @@
                   const IdValue = ID.value;
                   const emailAddressValue = emailAddress.value;
                   const phoneNumberValue = phoneNumber.value;
+                  const subjectValue = subject.value;
 
 
                   localStorage.setItem('first-name', firstNameValue);
@@ -175,6 +173,7 @@
                   localStorage.setItem('Id-Name', IdValue);
                   localStorage.setItem('email-address', emailAddressValue);
                   localStorage.setItem('phone-number', phoneNumberValue);
+                  localStorage.setItem('subject-menu' , subjectValue);
 
                   window.location.href = "table of student.html"
                 })
